@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import api from '../api/axios';
 import ProjectCard from '../components/ProjectCard';
+import '../components/Projects.css';
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState('All');

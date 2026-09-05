@@ -4,10 +4,10 @@ import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
   const overrides = {
-    'Personal portfolio': '/portfolio.png',
-    'smartFoot': '/smartfoot.png',
+    'Personal-Portfolio': '/portfolio.png',
+    'SmartFoot': '/smartfoot.png',
     'Pikachu-HHGoa': '/idcard.png',
-    'Voice-Enabled_RAG': '/voiceRAG.png',
+    'Voice-Enabled-RAG': '/voiceRAG.png',
     'Face_Identification': '/faceid.png',
     'Mineral-Chatbot': '/mineralchat.png',
     'blockchain-carbon-registry-ujwal': '/bluecarbon.png',
