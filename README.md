@@ -2,6 +2,10 @@
 
 A full-stack (MERN) personal portfolio application to showcase projects, skills, and experience.
 
+## Live Demo
+* **Frontend**: [https://ujwal-portfolio1.vercel.app/](https://ujwal-portfolio1.vercel.app/)
+* **Backend API**: [https://personal-portfolio-aii0.onrender.com/health](https://personal-portfolio-aii0.onrender.com/health)
+
 ## Tech Stack
 *   **Frontend**: React, Vite, React Router, React Query, React Hook Form, Zod
 *   **Backend**: Node.js, Express, MongoDB, Mongoose
