@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const mongoSanitize = require('express-mongo-sanitize');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
 
@@ -26,7 +25,7 @@ app.use(cors({ origin: process.env.FRONTEND_URL || '*' })); // CORS restriction
 app.use(express.json({ limit: '10kb' })); 
 
 // Data sanitization against NoSQL injection
-app.use(mongoSanitize());
+// Removed express-mongo-sanitize because it breaks Express 5
 
 // Data sanitization against XSS
 // Removed xss-clean because it breaks Express 5
