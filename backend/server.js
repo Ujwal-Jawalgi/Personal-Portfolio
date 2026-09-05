@@ -12,13 +12,22 @@ const experienceRoutes = require('./routes/experienceRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 
-// Database connection removed as frontend is now statically driven and uses GitHub API
+// Connect to MongoDB
+connectDB();
 
 const app = express();
 
+const rateLimit = require('express-rate-limit');
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.'
+});
+
 // Security and Utility Middleware
 app.use(helmet());
-app.use(cors({ origin: process.env.FRONTEND_URL || '*' })); // CORS restriction
+app.use(cors({ origin: process.env.FRONTEND_URL || 'https://ujwal-portfolio1.vercel.app' })); // Locked down CORS
+app.use(limiter);
 
 // Payload limit
 app.use(express.json({ limit: '10kb' })); 

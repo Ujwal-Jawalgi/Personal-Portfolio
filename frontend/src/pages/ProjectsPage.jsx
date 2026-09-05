@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import ProjectCard from '../components/ProjectCard';
 import '../components/Projects.css';
-import { useGithubProjects } from '../hooks/useGithubProjects';
+import { useQuery } from '@tanstack/react-query';
+import api from '../api/axios';
 
 const ProjectsPage = () => {
   const [filter, setFilter] = useState('All');
 
-  const { data: projects, isLoading, isError, refetch } = useGithubProjects();
+  const { data: projects, isLoading, isError, refetch } = useQuery({
+    queryKey: ['projects'],
+    queryFn: () => api.get('/projects').then(res => res.data)
+  });
 
   const allTechs = projects 
     ? Array.from(new Set(projects.flatMap(p => p.technologies).filter(Boolean)))

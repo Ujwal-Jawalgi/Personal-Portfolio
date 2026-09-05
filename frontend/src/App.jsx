@@ -11,7 +11,6 @@ const About = lazy(() => import('./pages/About'));
 const ProjectsPage = lazy(() => import('./pages/ProjectsPage'));
 const ProjectDetail = lazy(() => import('./pages/ProjectDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
-const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 
 // Scroll Handler Component
 const ScrollHandler = () => {
@@ -53,7 +52,6 @@ function App() {
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/projects/:id" element={<ProjectDetail />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </Suspense>
       </main>

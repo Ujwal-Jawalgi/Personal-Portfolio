@@ -2,10 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
-import { useGithubProjects } from '../hooks/useGithubProjects';
+import { useQuery } from '@tanstack/react-query';
+import api from '../api/axios';
 
 const Projects = () => {
-  const { data: projects, isLoading, isError } = useGithubProjects();
+  const { data: projects, isLoading, isError } = useQuery({
+    queryKey: ['projects'],
+    queryFn: () => api.get('/projects').then(res => res.data)
+  });
   
   // We only want the top 3 most recently updated for the featured section
   const featuredProjects = projects ? projects.slice(0, 3) : [];
