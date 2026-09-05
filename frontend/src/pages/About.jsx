@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaExternalLinkAlt, FaAward, FaBuilding, FaUserTie } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaAward, FaBuilding, FaUserTie, FaDownload } from 'react-icons/fa';
 import './About.css';
 
 const skills = [
@@ -141,6 +141,11 @@ const About = ({ isHome = false }) => {
         <p className="bio-text">
           I'm a Computer Science student at BMS Institute of Technology and Management (BMSIT&M), Bengaluru, working at the intersection of GenAI and full-stack development. I completed a 6-month GenAI internship at Augsta Infosystem, building LLM pipelines, AI agents, and RAG-based chatbots, and I'm currently a Full Stack Development intern at Thiranex. Outside of internships, I build and ship projects fast &mdash; usually as hackathons: a voice-enabled multilingual RAG system, a blockchain-based carbon credit registry, and an IoT soil-monitoring platform, among others.
         </p>
+        <div style={{ marginTop: '1.5rem' }}>
+          <a href="/Ujwal_Resume.pdf" download="Ujwal_Resume.pdf" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <FaDownload /> Download Resume
+          </a>
+        </div>
       </section>
 
       <section id="experience" className="about-section mt-4">
