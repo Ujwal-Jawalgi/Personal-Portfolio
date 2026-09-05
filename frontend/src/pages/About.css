@@ -1,0 +1,121 @@
+.page-container {
+  padding: 6rem 2rem;
+  min-height: calc(100vh - 200px);
+}
+
+.about-section {
+  margin-bottom: 5rem;
+}
+
+.about-section h2 {
+  font-size: 2.25rem;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.timeline {
+  border-left: 2px solid var(--border-color);
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-left: 1rem;
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.9rem;
+  top: 0.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  background-color: var(--bg-primary);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 15px 0 var(--primary-glow);
+  z-index: 1;
+}
+
+.timeline-item h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.date {
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.skill-item {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+.skill-name {
+  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.skill-category {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.achievements-list, .certifications-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.achievements-list li, .certifications-list li {
+  background-color: var(--bg-secondary);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.achievements-list li strong, .certifications-list li strong {
+  color: var(--text-primary);
+  font-family: var(--font-heading);
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
