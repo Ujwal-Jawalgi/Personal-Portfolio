@@ -9,7 +9,7 @@ const Home = () => {
     <>
       <ScrollyCanvas />
       <div id="about">
-        <About />
+        <About isHome={true} />
       </div>
       <div id="projects">
         <Projects />

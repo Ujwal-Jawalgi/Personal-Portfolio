@@ -158,14 +158,35 @@
   color: var(--primary);
 }
 
-/* Roles inside Leadership Cards */
+/* Roles inside Leadership Cards (Timeline style) */
 .roles-list {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 1rem;
-  border-top: 1px solid var(--border-color);
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
+  border-left: 2px solid var(--border-color);
+  margin-left: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.role-item {
+  position: relative;
+}
+
+.role-item::before {
+  content: '';
+  position: absolute;
+  left: -1.95rem;
+  top: 0.35rem;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  z-index: 1;
+  box-shadow: 0 0 10px 0 var(--primary-glow);
 }
 
 .role-header {

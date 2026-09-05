@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt, FaAward, FaBuilding, FaUserTie } from 'react-icons/fa';
 import './About.css';
 
@@ -10,9 +11,10 @@ const skills = [
   { _id: '5', name: 'RAG', category: 'AI / GenAI' },
   { _id: '6', name: 'AI Agents & Multi-Agent', category: 'AI / GenAI' },
   { _id: '7', name: 'Prompt Engineering', category: 'AI / GenAI' },
-  { _id: '8', name: 'React', category: 'Frontend' },
+  { _id: '8', name: 'React.js', category: 'Frontend' },
   { _id: '9', name: 'Next.js', category: 'Frontend' },
   { _id: '10', name: 'Node.js', category: 'Backend' },
+  { _id: '10.5', name: 'Express.js', category: 'Backend' },
   { _id: '11', name: 'FastAPI', category: 'Backend' },
   { _id: '12', name: 'MongoDB', category: 'Databases / BaaS' }
 ];
@@ -127,7 +129,10 @@ const achievements = [
   { _id: '4', title: 'Voice-Enabled RAG Developer', event: 'HH Goa 2026', description: 'Built a multilingual RAG system (15 Indic languages, 700K chunks).' }
 ];
 
-const About = () => {
+const About = ({ isHome = false }) => {
+  const displayLeadership = isHome ? leadership.slice(0, 3) : leadership;
+  const displayAchievements = isHome ? achievements.slice(0, 3) : achievements;
+
   return (
     <div className="container page-container">
       <h1 className="section-title">About Me</h1>
@@ -160,7 +165,7 @@ const About = () => {
       <section className="about-section mt-4">
         <h2>Leadership & Organizations</h2>
         <div className="about-grid leadership-grid">
-          {leadership.map(org => (
+          {displayLeadership.map(org => (
             <div key={org._id} className="about-card leadership-card">
               <div className="card-header">
                 <FaUserTie className="card-icon" />
@@ -180,6 +185,13 @@ const About = () => {
             </div>
           ))}
         </div>
+        {isHome && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <Link to="/about" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+              See All Leadership
+            </Link>
+          </div>
+        )}
       </section>
 
       <section className="about-section mt-4">
@@ -209,7 +221,7 @@ const About = () => {
       <section className="about-section mt-4">
         <h2>Achievements</h2>
         <div className="about-grid achievements-grid">
-          {achievements.map(ach => (
+          {displayAchievements.map(ach => (
             <div key={ach._id} className="about-card achievement-card">
               <div className="card-header">
                 <FaAward className="card-icon award-icon" />
@@ -220,6 +232,13 @@ const About = () => {
             </div>
           ))}
         </div>
+        {isHome && (
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+            <Link to="/about" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+              See All Achievements
+            </Link>
+          </div>
+        )}
       </section>
 
       <section className="about-section mt-4">

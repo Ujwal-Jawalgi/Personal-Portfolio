@@ -21,11 +21,27 @@ const Contact = () => {
 
   const onSubmit = async (data) => {
     try {
-      await api.post('/contact', data);
-      toast.success('Message sent successfully!');
-      reset();
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          access_key: '0fe02551-84d8-4572-a538-b7fff16d841b',
+          ...data
+        })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        toast.success('Message sent successfully!');
+        reset();
+      } else {
+        toast.error(result.message || 'Failed to send message');
+      }
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Failed to send message');
+      toast.error('Failed to send message. Please try again later.');
     }
   };
 
