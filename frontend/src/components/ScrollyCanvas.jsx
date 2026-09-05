@@ -8,23 +8,50 @@ const ScrollyCanvas = () => {
   const canvasRef = useRef(null);
   const [images, setImages] = useState([]);
 
-  // Preload all frames on mount
+  // Load all frames in parallel and set them immediately for instant access
   useEffect(() => {
-    const loadImages = async () => {
-      const loadedImages = [];
-      for (let i = 0; i < FRAME_COUNT; i++) {
-        const img = new Image();
-        const frameIndex = i.toString().padStart(3, '0');
-        img.src = `/sequence/frame_${frameIndex}_delay-0.067s.png`;
-        
-        await new Promise((resolve) => {
-          img.onload = resolve;
-          img.onerror = resolve; // Continue even if one fails
-        });
-        
-        loadedImages.push(img);
-      }
+    const loadImages = () => {
+      const loadedImages = new Array(FRAME_COUNT).fill(null);
+      
+      // Load frame 0 first for cold start
+      const firstImg = new Image();
+      firstImg.src = `/sequence/frame_000_delay-0.067s.png`;
+      loadedImages[0] = firstImg;
+      
+      firstImg.onload = () => {
+        // Force a draw of frame 0 if it hasn't been drawn yet
+        if (canvasRef.current) {
+          const ctx = canvasRef.current.getContext('2d');
+          const dpr = window.devicePixelRatio || 1;
+          const displayWidth = canvasRef.current.clientWidth;
+          const displayHeight = canvasRef.current.clientHeight;
+          
+          if (canvasRef.current.width !== displayWidth * dpr || canvasRef.current.height !== displayHeight * dpr) {
+            canvasRef.current.width = displayWidth * dpr;
+            canvasRef.current.height = displayHeight * dpr;
+          }
+          
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+          ctx.scale(dpr, dpr);
+          const scale = Math.min(displayWidth / firstImg.width, displayHeight / firstImg.height);
+          const x = (displayWidth / 2) - (firstImg.width / 2) * scale;
+          const y = (displayHeight / 2) - (firstImg.height / 2) * scale;
+          ctx.drawImage(firstImg, x, y, firstImg.width * scale, firstImg.height * scale);
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+        }
+      };
+
+      // Set the array into state immediately so the scroll listener can access them
       setImages(loadedImages);
+
+      // Load the rest in parallel in the background
+      for (let i = 1; i < FRAME_COUNT; i++) {
+        const img = new Image();
+        const frameIndexStr = i.toString().padStart(3, '0');
+        img.src = `/sequence/frame_${frameIndexStr}_delay-0.067s.png`;
+        loadedImages[i] = img; // Update the array reference directly (closure handles it)
+      }
     };
     loadImages();
   }, []);
