@@ -12,8 +12,7 @@ const experienceRoutes = require('./routes/experienceRoutes');
 const contactRoutes = require('./routes/contactRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 
-// Connect to Database
-connectDB();
+// Database connection removed as frontend is now statically driven and uses GitHub API
 
 const app = express();
 
