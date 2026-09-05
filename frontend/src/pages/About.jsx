@@ -143,7 +143,7 @@ const About = ({ isHome = false }) => {
         </p>
       </section>
 
-      <section className="about-section mt-4">
+      <section id="experience" className="about-section mt-4">
         <h2>Experience</h2>
         <div className="about-grid experience-grid">
           {experience.map(exp => (
@@ -162,7 +162,7 @@ const About = ({ isHome = false }) => {
         </div>
       </section>
 
-      <section className="about-section mt-4">
+      <section id="leadership" className="about-section mt-4">
         <h2>Leadership & Organizations</h2>
         <div className="about-grid leadership-grid">
           {displayLeadership.map(org => (
@@ -187,7 +187,7 @@ const About = ({ isHome = false }) => {
         </div>
         {isHome && (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
-            <Link to="/about" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+            <Link to="/about#leadership" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
               See All Leadership
             </Link>
           </div>
@@ -218,7 +218,7 @@ const About = ({ isHome = false }) => {
         </div>
       </section>
 
-      <section className="about-section mt-4">
+      <section id="achievements" className="about-section mt-4">
         <h2>Achievements</h2>
         <div className="about-grid achievements-grid">
           {displayAchievements.map(ach => (
@@ -234,7 +234,7 @@ const About = ({ isHome = false }) => {
         </div>
         {isHome && (
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
-            <Link to="/about" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+            <Link to="/about#achievements" className="btn btn-outline" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
               See All Achievements
             </Link>
           </div>
