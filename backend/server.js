@@ -4,7 +4,6 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const mongoSanitize = require('express-mongo-sanitize');
-const xss = require('xss-clean');
 const connectDB = require('./config/db');
 const { errorHandler } = require('./middleware/errorMiddleware');
 
@@ -30,7 +29,7 @@ app.use(express.json({ limit: '10kb' }));
 app.use(mongoSanitize());
 
 // Data sanitization against XSS
-app.use(xss());
+// Removed xss-clean because it breaks Express 5
 
 app.use(morgan('dev')); // Request logging
 
