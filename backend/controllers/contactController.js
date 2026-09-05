@@ -34,7 +34,8 @@ const sendContactEmail = asyncHandler(async (req, res) => {
   } catch (error) {
     console.error('Email error:', error);
     res.status(500);
-    throw new Error('Failed to send email. Please try again later.');
+    // Throw the exact error message so it displays on the frontend toast
+    throw new Error(`Email failed: ${error.message || 'Unknown error'}`);
   }
 });
 
