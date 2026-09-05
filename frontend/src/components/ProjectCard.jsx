@@ -3,10 +3,23 @@ import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 import './ProjectCard.css';
 
 const ProjectCard = ({ project }) => {
+  const overrides = {
+    'Personal portfolio': '/portfolio.png',
+    'smartFoot': '/smartfoot.png',
+    'Pikachu-HHGoa': '/idcard.png',
+    'Voice-Enabled_RAG': '/voiceRAG.png',
+    'Face_Identification': '/faceid.png',
+    'Mineral-Chatbot': '/mineralchat.png',
+    'blockchain-carbon-registry-ujwal': '/bluecarbon.png',
+    'AI-Interview-Prep': '/prepmind.png',
+  };
+
+  const finalImageUrl = overrides[project.title] || project.imageUrl || 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97';
+
   return (
     <div className="project-card">
       <div className="project-image">
-        <img src={project.imageUrl} alt={project.title} />
+        <img src={finalImageUrl} alt={project.title} />
       </div>
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
