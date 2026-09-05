@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api/axios';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 
@@ -9,7 +9,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/projects');
+        const { data } = await api.get('/projects');
         setProjectList(data);
       } catch (error) {
         console.error('Error fetching projects', error);
