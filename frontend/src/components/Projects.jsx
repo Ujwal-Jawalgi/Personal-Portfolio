@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ProjectCard from './ProjectCard';
 import './Projects.css';
 import { useGithubProjects } from '../hooks/useGithubProjects';
@@ -18,11 +19,18 @@ const Projects = () => {
         {isLoading && <p style={{textAlign: 'center'}}>Loading projects...</p>}
         
         {!isLoading && !isError && (
-          <div className="projects-grid">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project._id} project={project} />
-            ))}
-          </div>
+          <>
+            <div className="projects-grid">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project._id} project={project} />
+              ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem' }}>
+              <Link to="/projects" className="btn btn-primary" style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}>
+                See All Projects
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </section>

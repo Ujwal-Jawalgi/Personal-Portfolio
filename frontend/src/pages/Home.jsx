@@ -1,7 +1,7 @@
 import React from 'react';
 import ScrollyCanvas from '../components/ScrollyCanvas';
 import About from './About';
-import ProjectsPage from './ProjectsPage';
+import Projects from '../components/Projects';
 import Contact from './Contact';
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
         <About />
       </div>
       <div id="projects">
-        <ProjectsPage />
+        <Projects />
       </div>
       <div id="contact">
         <Contact />
