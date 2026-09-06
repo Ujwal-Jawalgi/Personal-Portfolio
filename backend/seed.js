@@ -62,14 +62,6 @@ const projects = [
     githubLink: 'https://github.com/Ujwal-Jawalgi/SmartFoot',
     liveLink: 'https://smartfoot-liard.vercel.app',
     imageUrl: '/smartfoot.png'
-  },
-  {
-    title: 'Agrobytes \u2014 IoT Soil Monitoring System',
-    description: 'An IoT-based soil health monitoring system built using ESP32, rain sensors, moisture sensors, and PH sensors to optimize soil health analysis for agriculture.',
-    technologies: ['ESP32', 'IoT Sensors', 'C++'],
-    githubLink: 'https://github.com/Ujwal-Jawalgi/Agrobytes',
-    liveLink: '', // No live link provided
-    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
   }
 ];
 
