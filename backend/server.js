@@ -17,17 +17,11 @@ connectDB();
 
 const app = express();
 
-const rateLimit = require('express-rate-limit');
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.'
-});
+
 
 // Security and Utility Middleware
 app.use(helmet());
-app.use(cors({ origin: process.env.FRONTEND_URL || 'https://ujwal-portfolio1.vercel.app' })); // Locked down CORS
-app.use(limiter);
+app.use(cors({ origin: process.env.FRONTEND_URL || '*' })); // Relaxed CORS
 
 // Payload limit
 app.use(express.json({ limit: '10kb' })); 
