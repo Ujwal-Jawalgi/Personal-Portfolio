@@ -1,12 +1,84 @@
 const Project = require('../models/Project');
 const { asyncHandler } = require('../middleware/errorMiddleware');
 
+// Hardcoded fallback data from seed.js in case DB is down
+const fallbackProjects = [
+  {
+    _id: "1",
+    title: 'Pikachu \u2014 Voice-Enabled Multilingual RAG System',
+    description: 'A voice-enabled, multilingual Retrieval-Augmented Generation system built for HH Goa 2026. Ask a question by voice or text in any of 15 Indic languages; it transcribes speech, retrieves from a unified 700,000-chunk FAISS vector index, and generates a grounded, guardrailed answer with full latency transparency.',
+    technologies: ['Next.js', 'FastAPI', 'Sarvam AI', 'Groq API', 'FAISS', 'Tailwind CSS'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/Voice-Enabled-RAG',
+    liveLink: 'https://voice-enabled-rag.vercel.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "2",
+    title: 'AI Interview Preparation Platform',
+    description: 'An AI-powered mock interview and resume-analysis platform. Includes an ATS resume analyzer, voice-based mock interviews, a built-in multi-language code editor, and AI evaluation of answers (communication, confidence, technical accuracy).',
+    technologies: ['Next.js', 'React', 'Supabase', 'Clerk', 'Groq API', 'Web Speech API'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/AI-Interview-Prep',
+    liveLink: 'https://ai-interview-arun-khajapure.vercel.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "3",
+    title: 'Mineral Chatbot',
+    description: 'A specialized geology question-answering chatbot powered by the OpenAI API. Provides accurate, domain-specific answers about minerals and geological data.',
+    technologies: ['Next.js', 'React', 'Supabase', 'OpenAI API'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/Mineral-Chatbot',
+    liveLink: 'https://mineral-chatbot.vercel.app',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "4",
+    title: 'Pikachu HH Goa \u2014 ID Card Generator',
+    description: 'A Goa beach-themed ID card generator built for the HH Goa hackathon. Users upload a photo and receive a unique HHG-XXXXX ID card with a QR code.',
+    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/Pikachu-HHGoa',
+    liveLink: 'https://pikachu-hh-goa.vercel.app',
+    imageUrl: 'https://images.unsplash.com/photo-1520699918507-3c3e05c46b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "5",
+    title: 'Blue Carbon Ledger \u2014 Blockchain Registry',
+    description: 'A decentralized MRV (Monitoring, Reporting, Verification) platform for blue carbon restoration projects built for Smart India Hackathon 2025. Contributed to the blockchain layer/smart contracts.',
+    technologies: ['React', 'TypeScript', 'Solidity', 'Polygon', 'Hardhat', 'IPFS'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/blockchain-carbon-registry-ujwal',
+    liveLink: 'https://ujwal-bluecarbon-registry.lovable.app/',
+    imageUrl: 'https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "6",
+    title: 'SmartFoot \u2014 Energy Harvesting Platform',
+    description: 'A prototype that converts footsteps into usable electrical energy via piezoelectric tiles. Built the frontend and backend integration with the ESP32 microcontroller.',
+    technologies: ['React', 'Supabase', 'ESP32', 'Vite', 'Framer Motion'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/SmartFoot',
+    liveLink: 'https://smartfoot-liard.vercel.app',
+    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    _id: "7",
+    title: 'Agrobytes \u2014 IoT Soil Monitoring System',
+    description: 'An IoT-based soil health monitoring system built using ESP32, rain sensors, moisture sensors, and PH sensors to optimize soil health analysis for agriculture.',
+    technologies: ['ESP32', 'IoT Sensors', 'C++'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/Agrobytes',
+    liveLink: '',
+    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
 // @desc    Get all projects
 // @route   GET /api/projects
 // @access  Public
 const getProjects = asyncHandler(async (req, res) => {
-  const projects = await Project.find({}).sort({ createdAt: -1 });
-  res.json(projects);
+  try {
+    const projects = await Project.find({}).sort({ createdAt: -1 });
+    res.json(projects);
+  } catch (error) {
+    console.error('Database connection failed, using fallback projects:', error.message);
+    res.json(fallbackProjects);
+  }
 });
 
 // @desc    Get single project
