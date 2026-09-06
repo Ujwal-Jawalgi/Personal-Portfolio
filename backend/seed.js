@@ -21,7 +21,7 @@ const projects = [
     technologies: ['Next.js', 'FastAPI', 'Sarvam AI', 'Groq API', 'FAISS', 'Tailwind CSS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Voice-Enabled-RAG',
     liveLink: 'https://voice-enabled-rag.vercel.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' // Placeholder
+    imageUrl: '/voiceRAG.png' // Local image
   },
   {
     title: 'AI Interview Preparation Platform',
@@ -29,7 +29,7 @@ const projects = [
     technologies: ['Next.js', 'React', 'Supabase', 'Clerk', 'Groq API', 'Web Speech API'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/AI-Interview-Prep',
     liveLink: 'https://ai-interview-arun-khajapure.vercel.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/prepmind.png'
   },
   {
     title: 'Mineral Chatbot',
@@ -37,7 +37,7 @@ const projects = [
     technologies: ['Next.js', 'React', 'Supabase', 'OpenAI API'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Mineral-Chatbot',
     liveLink: 'https://mineral-chatbot.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/mineralchat.png'
   },
   {
     title: 'Pikachu HH Goa \u2014 ID Card Generator',
@@ -45,7 +45,7 @@ const projects = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Pikachu-HHGoa',
     liveLink: 'https://pikachu-hh-goa.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1520699918507-3c3e05c46b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/idcard.png'
   },
   {
     title: 'Blue Carbon Ledger \u2014 Blockchain Registry',
@@ -53,7 +53,7 @@ const projects = [
     technologies: ['React', 'TypeScript', 'Solidity', 'Polygon', 'Hardhat', 'IPFS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/blockchain-carbon-registry-ujwal',
     liveLink: 'https://ujwal-bluecarbon-registry.lovable.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/bluecarbon.png'
   },
   {
     title: 'SmartFoot \u2014 Energy Harvesting Platform',
@@ -61,7 +61,7 @@ const projects = [
     technologies: ['React', 'Supabase', 'ESP32', 'Vite', 'Framer Motion'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/SmartFoot',
     liveLink: 'https://smartfoot-liard.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/smartfoot.png'
   },
   {
     title: 'Agrobytes \u2014 IoT Soil Monitoring System',

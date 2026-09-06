@@ -10,7 +10,7 @@ const fallbackProjects = [
     technologies: ['Next.js', 'FastAPI', 'Sarvam AI', 'Groq API', 'FAISS', 'Tailwind CSS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Voice-Enabled-RAG',
     liveLink: 'https://voice-enabled-rag.vercel.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1593642532744-d377ab507dc8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/voiceRAG.png'
   },
   {
     _id: "2",
@@ -19,7 +19,7 @@ const fallbackProjects = [
     technologies: ['Next.js', 'React', 'Supabase', 'Clerk', 'Groq API', 'Web Speech API'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/AI-Interview-Prep',
     liveLink: 'https://ai-interview-arun-khajapure.vercel.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/prepmind.png'
   },
   {
     _id: "3",
@@ -28,7 +28,7 @@ const fallbackProjects = [
     technologies: ['Next.js', 'React', 'Supabase', 'OpenAI API'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Mineral-Chatbot',
     liveLink: 'https://mineral-chatbot.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/mineralchat.png'
   },
   {
     _id: "4",
@@ -37,7 +37,7 @@ const fallbackProjects = [
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/Pikachu-HHGoa',
     liveLink: 'https://pikachu-hh-goa.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1520699918507-3c3e05c46b0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/idcard.png'
   },
   {
     _id: "5",
@@ -46,7 +46,7 @@ const fallbackProjects = [
     technologies: ['React', 'TypeScript', 'Solidity', 'Polygon', 'Hardhat', 'IPFS'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/blockchain-carbon-registry-ujwal',
     liveLink: 'https://ujwal-bluecarbon-registry.lovable.app/',
-    imageUrl: 'https://images.unsplash.com/photo-1501862700950-18382cd41497?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/bluecarbon.png'
   },
   {
     _id: "6",
@@ -55,7 +55,7 @@ const fallbackProjects = [
     technologies: ['React', 'Supabase', 'ESP32', 'Vite', 'Framer Motion'],
     githubLink: 'https://github.com/Ujwal-Jawalgi/SmartFoot',
     liveLink: 'https://smartfoot-liard.vercel.app',
-    imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    imageUrl: '/smartfoot.png'
   },
   {
     _id: "7",
