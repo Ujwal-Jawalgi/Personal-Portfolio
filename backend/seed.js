@@ -62,6 +62,22 @@ const projects = [
     githubLink: 'https://github.com/Ujwal-Jawalgi/SmartFoot',
     liveLink: 'https://smartfoot-liard.vercel.app',
     imageUrl: '/smartfoot.png'
+  },
+  {
+    title: 'Personal Portfolio Website',
+    description: 'My personal portfolio website showcasing my projects, skills, and experience. Built with a MERN stack featuring a dynamic React frontend and automated GitHub synchronization.',
+    technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi/Personal-Portfolio',
+    liveLink: 'https://personal-portfolio-allo.onrender.com',
+    imageUrl: '/portfolio.png'
+  },
+  {
+    title: 'Face Identification System',
+    description: 'A facial recognition system built using machine learning and computer vision to accurately identify and verify individuals in real-time video streams.',
+    technologies: ['Python', 'OpenCV', 'Machine Learning'],
+    githubLink: 'https://github.com/Ujwal-Jawalgi',
+    liveLink: '',
+    imageUrl: '/faceid.png'
   }
 ];
 
