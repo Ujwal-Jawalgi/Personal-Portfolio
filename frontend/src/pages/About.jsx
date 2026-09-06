@@ -199,10 +199,10 @@ const About = ({ isHome = false }) => {
         )}
       </section>
 
-      <section className="about-section mt-4">
+      <section className="about-section mt-4" style={{ textAlign: 'center' }}>
         <h2>Education</h2>
-        <div className="about-grid education-grid">
-          <div className="about-card education-card">
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div className="about-card education-card" style={{ maxWidth: '400px', width: '100%', textAlign: 'left' }}>
             <h3>BMS Institute of Technology and Management (BMSIT&M)</h3>
             <span className="card-subtitle">B.E. in Computer Science</span>
             <span className="card-date">2024 &ndash; 2028</span>
@@ -211,9 +211,9 @@ const About = ({ isHome = false }) => {
         </div>
       </section>
 
-      <section className="about-section mt-4">
+      <section className="about-section mt-4" style={{ textAlign: 'center' }}>
         <h2>Skills</h2>
-        <div className="skills-grid">
+        <div className="skills-grid" style={{ justifyContent: 'center' }}>
           {skills.map(skill => (
             <div key={skill._id} className="skill-item">
               <span className="skill-name">{skill.name}</span>
